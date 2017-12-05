@@ -13,6 +13,8 @@ div.wrapper  {
     border-radius: 20px;
     box-shadow: 0 6px 30px 18px rgba(199, 199, 199, 0.75);
     transition: transform 0.3s ease-in;
+    
+    
 }
 
 div.wrapper:hover{
@@ -57,8 +59,9 @@ header{
     
 }
 
-header input{
+header input#item{
     font-family: Arial;
+    
     width: 100%;
     font-size: 1rem;
     height:50px;
@@ -82,20 +85,46 @@ header input{
     transition: all 0.5s ease;
 }
 
-header input:focus{
+header input#item:focus{
     background: rgba(35, 14, 87, 0.5);
 }
 
-header input::-moz-placeholder{
+header input#item::-moz-placeholder{
     color:white;
 }
 
+header input#count{
+    float: left;
+    position: absolute;
+    right: 70px;
+    height: 40px;
+    width: 40px;
+    background: rgba(255,255,255,0.2);
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: 3px;
+    outline: none;
+    text-align: center ;
+    border:none;
+    color: white;
+    font-size: 1rem;
+    -webkit-appearance:none;
+    -moz-appearance:textfield;
+    -ms-appearance:none;
+    -o-appearance:none;
+}
+
+
+header input#count:hover::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
 
 header div#animationDiv{ /*being used for mojs animation*/
     height: 50px;
     position: absolute;
     right: 15px;
     width: 50px;
+    
 }
 
 header button{
@@ -160,6 +189,7 @@ header button.rotate{
 div.container{
     width:100%;
     float:left;
+
     
 }
 
@@ -322,4 +352,25 @@ hr.divider{
     position: relative;
     bottom: 12px;
     left:15px;
+}
+
+#countDiv{
+    
+    display: inline;
+    /* right: 5px; */
+    background: #aaaa;
+    padding: 0px 4px 0px 4px;
+    /* float: right; */
+    position: absolute;
+    color: white;
+    right: 100px;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    font-size: 1rem;
+}
+
+
+#countDiv.animate{
+    transform: scale(1.1);
+    background: rgb(84, 201, 113);   
 }

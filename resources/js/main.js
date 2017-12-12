@@ -430,7 +430,7 @@ function checkAnimation(checkItem){
         stroke: 'white',
         strokeWidth: 30,
         duration:300,
-        opacity:{1.7:0}
+        opacity:{0.7:0}
     });
 
     const circle3 = new mojs.Shape({

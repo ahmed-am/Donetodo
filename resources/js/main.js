@@ -25,15 +25,18 @@ addButton.addEventListener('click', function(){
     addItem(itemTextBox.value,countTextBox.value);
 });
 
-itemTextBox.addEventListener('keydown', KeyboardEvent => {
-    if(KeyboardEvent.key=="Enter")
+itemTextBox.addEventListener('keydown',  KeyboardEvent  => {
+    
+    if(KeyboardEvent.key=="Enter"  && itemTextBox.value)
     {
+        console.log(itemTextBox.value);
         addItem(itemTextBox.value,countTextBox.value);
     }
 })
 
 countTextBox.addEventListener('keydown', KeyboardEvent => {
-    if(KeyboardEvent.key=="Enter")
+    
+    if(KeyboardEvent.key=="Enter" && itemTextBox.value)
     {
         addItem(itemTextBox.value,countTextBox.value);
         itemTextBox.focus();
@@ -102,7 +105,7 @@ function addItemStorage(item,itemCount){
 
 function updateStorageItemCount(taskNumber,count)
 {
-    console.log(taskNumber);
+    
     localStorage.setItem('task'+taskNumber+'Count',count);
 }
 
@@ -110,11 +113,14 @@ function deleteStorageItem(taskNumber){
     localStorage.removeItem('task'+taskNumber);
     localStorage.removeItem('task'+taskNumber+'Count');
     
-    if(localStorage.taskList[0] == taskNumber){
+    console.log(localStorage.taskList.length);
+
+    if(localStorage.taskList[0] == taskNumber && localStorage.taskList.length>1){
         
         localStorage.taskList = localStorage.taskList.replace(taskNumber+',' , ''); //incase of first item
         
     }
+   
     else if(localStorage.taskList.length>1)
         localStorage.taskList = localStorage.taskList.replace(','+taskNumber ,''); //incase of last or middle item
     else{
@@ -128,12 +134,15 @@ function deleteStorageItem(taskNumber){
 function addItem(itemValue,itemCount){
     
     
+    itemValue= itemValue.trim();
+
     if(itemValue){
+        
         newElement(itemValue,itemCount);
         
         itemTextBox.value="";
         countTextBox.value="1";
-        }
+        
         
         document.getElementById('add').classList.toggle("rotate");
         addAnimation();
@@ -143,7 +152,7 @@ function addItem(itemValue,itemCount){
          }, 500);
 
          addItemStorage(itemValue,itemCount);
-        
+        }
         
         
 }
